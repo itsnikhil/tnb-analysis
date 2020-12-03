@@ -4,7 +4,7 @@ Gain insights about thenewboston digital crypto currency network by doing some a
 
 View the [Dataset used](https://github.com/thenewboston-developers/Account-Backups/tree/master/account_backups)
 
-![Demo screenshot](./screenshot/demo.png)
+![Demo screenshot](./screenshots/demo.png)
 
 ## Salient features
 
@@ -28,7 +28,7 @@ View the [Dataset used](https://github.com/thenewboston-developers/Account-Backu
 4) Execute the script
 `node main.js`
 
-![Execution response](./screenshot/stdout.png)
+![Execution response](./screenshots/stdout.png)
 
 ## Advanced usage
 
@@ -43,4 +43,5 @@ Configuration can be tweaked under `constants.js`
 ## Author
 
 Nikhil Taneja (taneja.nikhil03@gmail.com)
+
 https://itsnikhil.github.io/blog
