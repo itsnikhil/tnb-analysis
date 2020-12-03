@@ -1,0 +1,33 @@
+{
+  "name": "analysis-on-thenewboston",
+  "version": "1.0.0",
+  "description": "Gain insights about thenewboston digital crypto currency network by doing some analysis",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/itsnikhil/tnb-analysis"
+  },
+  "keywords": [
+    "thenewboston",
+    "blockchain",
+    "crypto currency",
+    "digital currency",
+    "open source",
+    "analysis",
+    "nodejs",
+    "wealth distribution",
+    "explorer",
+    "insights",
+    "analytics"],
+  "author": "Nikhil Taneja",
+  "license": "MIT",
+  "dependencies": {
+    "cli-progress": "^3.8.2",
+    "csv-write-stream": "^2.0.0",
+    "js-sorted-set": "^0.7.0",
+    "stream-json": "^1.7.1"
+  }
+}
