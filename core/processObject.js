@@ -3,7 +3,7 @@
 // processObject.js (c) 2020
 // Desc: Process object data for analysis
 // Created:  Fri Dec 04 2020 00:43:14 GMT+0530 (India Standard Time)
-// Modified: Fri Dec 04 2020 02:58:44 GMT+0530 (India Standard Time)
+// Modified: Fri Dec 04 2020 11:50:48 GMT+0530 (India Standard Time)
 // 
 
 const { tick } = require("../utils/progress");
@@ -43,7 +43,7 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
     // Process each account object in json
     pipeline.on('data', (data) => {
         // Guard clause to remove outliers
-        if (data.key in ACCOUNTS_TO_SKIP) return
+        if (ACCOUNTS_TO_SKIP.includes(data.key)) return
         // Add first 50% accounts to sorted set
         if (top50.length < Math.round(50 / 100 * n_accounts)) {
             try {

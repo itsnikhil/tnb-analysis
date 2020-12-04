@@ -3,7 +3,7 @@
 // basicArrayAnalysis.js (c) 2020
 // Desc: Calculates total coins, accounts and max_balance then calls to process Wealth
 // Created:  Fri Dec 04 2020 01:19:45 GMT+0530 (India Standard Time)
-// Modified: Fri Dec 04 2020 02:58:41 GMT+0530 (India Standard Time)
+// Modified: Fri Dec 04 2020 11:49:51 GMT+0530 (India Standard Time)
 // 
 
 const { tick } = require("../utils/progress");
@@ -35,7 +35,7 @@ const aggregate = (file) => {
     
     // Process each account object in json
     pipeline.on('data', (data) => {
-        if (data.value.account_number in ACCOUNTS_TO_SKIP) return
+        if (ACCOUNTS_TO_SKIP.includes(data.value.account_number)) return
         ++n_accounts;
         total += data.value.balance;
         if (data.value.balance > max_balance) { max_balance = data.value.balance; rich_account = data.value.account_number; };

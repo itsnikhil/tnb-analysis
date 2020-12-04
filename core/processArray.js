@@ -3,7 +3,7 @@
 // processArray.js (c) 2020
 // Desc: Process array data for analysis
 // Created:  Fri Dec 04 2020 01:03:27 GMT+0530 (India Standard Time)
-// Modified: Fri Dec 04 2020 02:58:42 GMT+0530 (India Standard Time)
+// Modified: Fri Dec 04 2020 11:50:22 GMT+0530 (India Standard Time)
 // 
 
 const { tick } = require("../utils/progress");
@@ -39,7 +39,7 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
     // Process each account object in json
     pipeline.on('data', (data) => {
         // Guard clause to remove outliers
-        if (data.value.account_number in ACCOUNTS_TO_SKIP) return
+        if (ACCOUNTS_TO_SKIP.includes(data.value.account_number)) return
         // Add first 50% accounts to sorted set
         if (top50.length < Math.round(50 / 100 * n_accounts)) {
             try {
