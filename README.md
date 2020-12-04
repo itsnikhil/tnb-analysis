@@ -4,7 +4,7 @@ Gain insights about thenewboston digital crypto currency network by doing some a
 
 View the [Dataset used](https://github.com/thenewboston-developers/Account-Backups/tree/master/account_backups)
 
-![Demo screenshot](./screenshots/demo.png)
+![Demo screenshot](./screenshots/wealth_distribution.png)
 
 ## Salient features
 
@@ -12,7 +12,9 @@ View the [Dataset used](https://github.com/thenewboston-developers/Account-Backu
 - Total number of accounts over time period
 - Richest account information
 - Wealth distribution between top 5%,10%, 25% and 50%
-- Pre-processed Excel sheet
+- Pre-processed Excel sheet and Jupyter notebook
+
+[SEE RESULTS HERE](https://github.com/itsnikhil/tnb-analysis/blob/master/TNB%20Analysis.ipynb)
 
 ## Usage
 
@@ -20,7 +22,7 @@ View the [Dataset used](https://github.com/thenewboston-developers/Account-Backu
 `git clone https://github.com/itsnikhil/tnb-analysis.git`
 
 2) Go to analysis directory
-`cd analysis`
+`cd tnb-analysis`
 
 3) Install dependancies
 `npm install`
