@@ -7,7 +7,7 @@ import json
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
-
+from datetime import datetime
 
 # %%
 pd.options.display.float_format = '{:.3f}'.format
@@ -15,11 +15,9 @@ pd.options.display.float_format = '{:.3f}'.format
 plt.style.use('default')
 
 # %%
-from datetime import datetime
-custom_date_parser = lambda x: datetime.strptime(x, '%Y-%m-%d-%H_%M_%S')
-
-# %%
-data = pd.read_csv('out.csv',index_col="Date",parse_dates=True,date_parser=custom_date_parser)
+data = pd.read_csv('out.csv')
+data['Date'] = pd.to_datetime(data['Date'], format='%Y-%m-%d-%H_%M_%S')
+data.set_index('Date', inplace=True)
 
 # %%
 data[['Top 5% ownership','Top 10% ownership','Top 25% ownership','Top 50% ownership']] = data[
