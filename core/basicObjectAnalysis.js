@@ -3,7 +3,7 @@
 // basicObjectAnalysis.js (c) 2020
 // Desc: Calculates total coins, accounts and max_balance then calls to process Wealth
 // Created:  Fri Dec 04 2020 01:19:01 GMT+0530 (India Standard Time)
-// Modified: Fri Dec 04 2020 11:50:08 GMT+0530 (India Standard Time)
+// Modified: Mon Dec 07 2020 16:38:39 GMT+0530 (India Standard Time)
 // 
 
 const { tick } = require("../utils/progress");
@@ -15,7 +15,7 @@ const { analyse } = require("./processObject");
 const { chain } = require('stream-chain');
 
 const { parser } = require('stream-json');
-const { streamObject } = require('stream-json/streamers/streamObject');
+const { streamObject } = require('stream-json/streamers/StreamObject');
 
 const fs = require('fs');
 

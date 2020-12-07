@@ -3,7 +3,7 @@
 // processObject.js (c) 2020
 // Desc: Process object data for analysis
 // Created:  Fri Dec 04 2020 00:43:14 GMT+0530 (India Standard Time)
-// Modified: Fri Dec 04 2020 11:50:48 GMT+0530 (India Standard Time)
+// Modified: Mon Dec 07 2020 16:38:48 GMT+0530 (India Standard Time)
 // 
 
 const { tick } = require("../utils/progress");
@@ -15,7 +15,7 @@ const { analyse: analyseArray } = require("./processArray");
 const { chain } = require('stream-chain');
 
 const { parser } = require('stream-json');
-const { streamObject } = require('stream-json/streamers/streamObject');
+const { streamObject } = require('stream-json/streamers/StreamObject');
 
 const fs = require('fs');
 
