@@ -4,7 +4,6 @@ from datetime import datetime
 from thenewboston.constants.network import MAX_POINT_VALUE
 from thenewboston.utils.network import fetch
 
-from config.settings import ACCOUNT_BACKUPS_DIR
 from utils.files import write_json
 from utils.format_results import format_results
 
@@ -38,12 +37,11 @@ def run():
 
     now = datetime.utcnow()
     date_time = now.strftime('%Y-%m-%d-%H_%M_%S')
-    file_path = os.path.join(ACCOUNT_BACKUPS_DIR, f'{date_time}.json')
     data = format_results(fetch_account_data())
     verify_results(data=data)
 
     write_json(
-        file=file_path,
+        file=f'./account_backups/{date_time}.json',
         data=data
     )
 
