@@ -6,7 +6,7 @@ name: TNB Daily Analysis
 on:
   # Triggers the workflow on push or pull request events but only for the master branch
   schedule:
-    - cron: "50 9 * * *"
+    - cron: "0 10 * * *"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -23,7 +23,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - name: Setup Node.js environment
-        uses: actions/setup-node@v2.1.2
+      - uses: actions/setup-node@v2.1.2
         with:
           node-version: 12.x
       - name: Install dependencies
@@ -31,7 +31,7 @@ jobs:
       - name: Generate CSV
         run: node main.js
       - name: Setup Python
-        uses: actions/setup-python@v2.1.4
+      - uses: actions/setup-python@v2.1.4
         with:
           python-version: 3.8
       - name: Generate charts
@@ -40,7 +40,7 @@ jobs:
           pip install -r requirements.txt
           python generate_plots.py
       - name: Updated charts
-        run: |
+      - run: |
           git config --global user.name 'itsnikhil'
           git config --global user.email 'taneja.nikhil03@gmail.com@users.noreply.github.com'
           git commit -am "Automated report"
