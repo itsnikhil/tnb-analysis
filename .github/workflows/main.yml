@@ -21,17 +21,17 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Setup repo
+        uses: actions/checkout@v2
       - name: Setup Python
         uses: actions/setup-python@v2.1.4
         with:
           python-version: 3.8
+      - name: Take backup
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-      - name: Take backup
-        run: python main.py
-      - name: Setup repo
-        uses: actions/checkout@v2
+          python main.py
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
         with:
