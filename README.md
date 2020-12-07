@@ -4,7 +4,7 @@ Gain insights about thenewboston digital crypto currency network by doing some a
 
 View the [Dataset used](https://github.com/thenewboston-developers/Account-Backups/tree/master/account_backups)
 
-![Demo screenshot](./screenshots/wealth_distribution.png)
+![Demo screenshot](./screenshots/Percentage-of-wealth-held.png)
 
 ## Salient features
 
