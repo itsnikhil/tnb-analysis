@@ -3,7 +3,7 @@
 // processArray.js (c) 2020
 // Desc: Process array data for analysis
 // Created:  Fri Dec 04 2020 01:03:27 GMT+0530 (India Standard Time)
-// Modified: Fri Dec 04 2020 11:50:22 GMT+0530 (India Standard Time)
+// Modified: Mon Dec 07 2020 16:33:49 GMT+0530 (India Standard Time)
 // 
 
 const { tick } = require("../utils/progress");
@@ -16,7 +16,7 @@ const SortedSet = require('js-sorted-set');
 const { chain } = require('stream-chain');
 
 const { parser } = require('stream-json');
-const { streamArray } = require('stream-json/streamers/streamArray');
+const { streamArray } = require('stream-json/streamers/StreamArray');
 
 const fs = require('fs');
 

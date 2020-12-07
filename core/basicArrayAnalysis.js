@@ -3,7 +3,7 @@
 // basicArrayAnalysis.js (c) 2020
 // Desc: Calculates total coins, accounts and max_balance then calls to process Wealth
 // Created:  Fri Dec 04 2020 01:19:45 GMT+0530 (India Standard Time)
-// Modified: Fri Dec 04 2020 11:49:51 GMT+0530 (India Standard Time)
+// Modified: Mon Dec 07 2020 16:33:58 GMT+0530 (India Standard Time)
 // 
 
 const { tick } = require("../utils/progress");
@@ -14,7 +14,7 @@ const { analyse } = require("./processObject");
 const { chain } = require('stream-chain');
 
 const { parser } = require('stream-json');
-const { streamArray } = require('stream-json/streamers/streamArray');
+const { streamArray } = require('stream-json/streamers/StreamArray');
 
 const fs = require('fs');
 
