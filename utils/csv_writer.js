@@ -3,7 +3,7 @@
 // csv_writer.js (c) 2020
 // Desc: Helper module to save results in csv
 // Created:  Fri Dec 04 2020 02:46:16 GMT+0530 (India Standard Time)
-// Modified: Tue Dec 08 2020 01:35:38 GMT+0530 (India Standard Time)
+// Modified: Tue Dec 08 2020 03:04:43 GMT+0530 (India Standard Time)
 // 
 
 const csvWriter = require('csv-write-stream');
@@ -20,7 +20,7 @@ const createCSVWriter = (file, options) => {
 const updateCSVWriter = (file) => {
     if (writer !== null) throw new Error('Writer is already defined!');
     if (!fs.existsSync(file)) throw new Error('File not found!');
-    writer = csvWriter();
+    writer = csvWriter(sendHeaders: false);
     writer.pipe(fs.createWriteStream(file, {flags: 'a'}))
 }
 
