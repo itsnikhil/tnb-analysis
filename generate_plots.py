@@ -16,7 +16,8 @@ plt.style.use('default')
 
 # %%
 data = pd.read_csv('out.csv')
-data['Date'] = pd.to_datetime(data['Date'], format='%Y-%m-%d-%H_%M_%S')
+print(data['Date'])
+data['Date'] = pd.to_datetime(data['Date'], format='%Y-%m-%d-%H_%M_%S', infer_datetime_format=True, errors='ignore')
 data.set_index('Date', inplace=True)
 
 # %%
