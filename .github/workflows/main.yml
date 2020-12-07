@@ -21,6 +21,15 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+      - name: Setup Python
+        uses: actions/setup-python@v2.1.4
+        with:
+          python-version: 3.8
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: Take backup
+        run: python main.py
       - name: Setup repo
         uses: actions/checkout@v2
       - name: Setup Node.js environment
@@ -30,16 +39,9 @@ jobs:
       - name: Generate CSV
         run: |
           npm install
-          node main.js
-      - name: Setup Python
-        uses: actions/setup-python@v2.1.4
-        with:
-          python-version: 3.8
+          node update.js
       - name: Generate charts
-        run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
-          python generate_plots.py
+        run: python generate_plots.py
       - name: Updated charts
         run: |
           git config --global user.name 'itsnikhil'
