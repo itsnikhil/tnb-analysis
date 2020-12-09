@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | TNB Analysis</title>
+    <link rel="stylesheet" href="web/css/styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
+</head>
+
+<body>
+    <nav id="myNav">
+        <div class="left">
+            <div class="logo">
+                <picture>
+                    <!-- <source type="image/webp" srcset="../logo.webp"> -->
+                    <img src="./web/assets/hologram2.svg" class="logo" width="42px" height="42px"
+                        alt="TNB Analysis logo">
+                </picture>
+            </div>
+            <div class="heading">
+                <a href="/">
+                    <h3>TNB Analysis</h3>
+                </a>
+            </div>
+        </div>
+        <div class="middle">
+            <!-- <ul class="navigation">
+                    Page navigation
+                </ul> -->
+        </div>
+        <div class="right">
+            <div class="action">
+                <iframe src="https://ghbtns.com/github-btn.html?user=itsnikhil&type=follow&count=true&size=large"
+                    frameborder="0" scrolling="0" width="230" height="30" title="GitHub"></iframe>
+                <iframe
+                    src="https://ghbtns.com/github-btn.html?user=itsnikhil&repo=tnb-analysis&type=star&count=true&size=large"
+                    frameborder="0" scrolling="0" width="150" height="30" title="GitHub"></iframe>
+                <!-- <a href="/contact"><button>Contact Us</button></a> -->
+            </div>
+        </div>
+        <div class="menu" onclick="toggleNav(this)">
+            <div class="bar1"></div>
+            <div class="bar2"></div>
+            <div class="bar3"></div>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="header">
+            <div>
+                <h2>Dashboard</h2>
+                <p>Updates daily at 10:10 UTC</p>
+            </div>
+            <div class="date">
+                <span id="today">08 Dec 2020 10:28 UTC</span>
+            </div>
+        </div>
+    </div>
+
+    <section>
+        <div class="container">
+            <div class="heads">
+                <div class="card text-center">
+                    <div class="title">
+                        <h3>COINS DISTRIBUTED</h3>
+                    </div>
+                    <h1 id="total-coins">10,000,000</h1>
+                </div>
+                <div class="card text-center">
+                    <div class="title">
+                        <h3>TOTAL ACCOUNTS</h3>
+                    </div>
+                    <h1 id="total-accounts">10,000,000</h1>
+                </div>
+                <div class="card text-center">
+                    <div class="title">
+                        <h3>RICHEST ACCOUNT</h3>
+                    </div>
+                    <h1 id="max-balance">10,000,000</h1>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="card">
+                <div class="title">
+                    <h2>Daily change in coins</h2>
+                    <p>The higher value represents more amount of coin distributed on a particular day</p>
+                </div>
+                <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+
+                    <figure class="wp-caption" itemprop="associatedMedia" itemscope
+                        itemtype="http://schema.org/ImageObject">
+                        <a href="./screenshots/Daily-change-in-coins.png" itemprop="contentUrl" data-size="1359x378">
+                            <img src="./screenshots/Daily-change-in-coins.png" alt="Daily change in coins"
+                                itemprop="thumbnail">
+                        </a>
+                        <figcaption class="wp-caption-text">Click to expand</figcaption>
+                    </figure>
+                </div>
+
+                <span class="last-updated">Last updated: 07 Dec 2020</span>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="cards">
+                <div class="card">
+                    <div class="title">
+                        <h2>Total backup accounts over time</h2>
+                        <p>The higher value depicts more number of accounts in the network having balance more than 0
+                            coins</p>
+                    </div>
+                    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                        <figure class="wp-caption" itemprop="associatedMedia" itemscope
+                            itemtype="http://schema.org/ImageObject">
+                            <a href="./screenshots/Total-coins-distributed-over-time.png" itemprop="contentUrl"
+                                data-size="1192x503">
+                                <img src="./screenshots/Total-coins-distributed-over-time.png"
+                                    alt="Total coins distributed over time" itemprop="thumbnail">
+                            </a>
+                            <figcaption class="wp-caption-text">Click to expand</figcaption>
+                        </figure>
+                    </div>
+                    <span class="last-updated">Last updated: 07 Dec 2020</span>
+                </div>
+                <div class="card">
+                    <div class="title">
+                        <h2>Total coins distributed over time</h2>
+                        <p>The higher value depicts more number of accounts in the network having balance more than 0
+                            coins</p>
+                    </div>
+                    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                        <figure class="wp-caption" itemprop="associatedMedia" itemscope
+                            itemtype="http://schema.org/ImageObject">
+                            <a href="./screenshots/Total-backup-accounts-over-time.png" itemprop="contentUrl"
+                                data-size="1163x504">
+                                <img src="./screenshots/Total-backup-accounts-over-time.png"
+                                    alt="Total accounts over time" itemprop="thumbnail">
+                            </a>
+                            <figcaption class="wp-caption-text">Click to expand</figcaption>
+                        </figure>
+                    </div>
+                    <span class="last-updated">Last updated: 07 Dec 2020</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="cards">
+                <div class="card">
+                    <div class="title">
+                        <h2>Wealth distribution</h2>
+                        <p>How concentrated is the wealth of various groups in a network</p>
+                    </div>
+                    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                        <figure class="wp-caption" itemprop="associatedMedia" itemscope
+                            itemtype="http://schema.org/ImageObject">
+                            <a href="./screenshots/Wealth-distribution.png" itemprop="contentUrl" data-size="808x371">
+                                <img src="./screenshots/Wealth-distribution.png" alt="Wealth distribution"
+                                    itemprop="thumbnail">
+                            </a>
+                            <figcaption class="wp-caption-text">Click to expand</figcaption>
+                        </figure>
+                    </div>
+                    <span class="last-updated">Last updated: 07 Dec 2020</span>
+                </div>
+                <div class="card">
+                    <div class="title">
+                        <h2>Percentage of wealth held</h2>
+                        <p>Percentage of wealth held shows comparison of the wealth of various groups in a network</p>
+                    </div>
+                    <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                        <figure class="wp-caption" itemprop="associatedMedia" itemscope
+                            itemtype="http://schema.org/ImageObject">
+                            <a href="./screenshots/Percentage-of-wealth-held.png" itemprop="contentUrl"
+                                data-size="678x447">
+                                <img src="./screenshots/Percentage-of-wealth-held.png" alt="Percentage of wealth held"
+                                    itemprop="thumbnail">
+                            </a>
+                            <figcaption class="wp-caption-text">Click to expand</figcaption>
+                        </figure>
+                    </div>
+                    <span class="last-updated">Last updated: 07 Dec 2020</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div class="container">
+            <div class="card">
+                <div class="title">
+                    <h2>Ownership of different groups</h2>
+                    <p>The trend of wealth distribution across the groups over time</p>
+                </div>
+                <div class="my-gallery" itemscope itemtype="http://schema.org/ImageGallery">
+                    <figure class="wp-caption" itemprop="associatedMedia" itemscope
+                        itemtype="http://schema.org/ImageObject">
+                        <a href="./screenshots/Ownership-of-different-groups.png" itemprop="contentUrl"
+                            data-size="1005x514">
+                            <img src="./screenshots/Ownership-of-different-groups.png"
+                                alt="Ownership of different groups" itemprop="thumbnail">
+                        </a>
+                        <figcaption class="wp-caption-text">Click to expand</figcaption>
+                    </figure>
+                </div>
+                <span class="last-updated">Last updated: 07 Dec 2020</span>
+            </div>
+        </div>
+    </section>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+        <!-- Background of PhotoSwipe. 
+                It's a separate element, as animating opacity is faster than rgba(). -->
+        <div class="pswp__bg"></div>
+
+        <!-- Slides wrapper with overflow:hidden. -->
+        <div class="pswp__scroll-wrap">
+
+            <!-- Container that holds slides. PhotoSwipe keeps only 3 slides in DOM to save memory. -->
+            <div class="pswp__container">
+                <!-- don't modify these 3 pswp__item elements, data is added later on -->
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+                <div class="pswp__item"></div>
+            </div>
+
+            <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+            <div class="pswp__ui pswp__ui--hidden">
+
+                <div class="pswp__top-bar">
+
+                    <!--  Controls are self-explanatory. Order can be changed. -->
+
+                    <div class="pswp__counter"></div>
+
+                    <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                    <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                    <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                    <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                    <!-- Preloader demo https://codepen.io/dimsemenov/pen/yyBWoR -->
+                    <!-- element will get class pswp__preloader--active when preloader is running -->
+                    <div class="pswp__preloader">
+                        <div class="pswp__preloader__icn">
+                            <div class="pswp__preloader__cut">
+                                <div class="pswp__preloader__donut"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                    <div class="pswp__share-tooltip"></div>
+                </div>
+
+                <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+                </button>
+
+                <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+                </button>
+
+                <div class="pswp__caption">
+                    <div class="pswp__caption__center"></div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <footer>
+        <p><b>Project hosted on Github</b></p>
+        <p><em><u>Disclaimer</u>: Although the data found here has been processed from sources believed to be reliable,
+                no warranty expressed or implied is made regarding accuracy, adequacy, completeness, legality,
+                reliability or usefulness of any information.</em></p>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script>
+    <script src="web/js/scripts.js"></script>
+</body>
+
+</html>
