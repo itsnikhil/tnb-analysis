@@ -2,7 +2,7 @@
     "name": "Dashboard | TNB Analysis",
     "gcm_sender_id": "932775037797",
     "short_name": "TNB Analysis",
-    "start_url": "/tnb-analysis",
+    "start_url": "/tnb-analysis/",
     "description": "Daily dose of insights about thenewboston digital crypto currency network analysis like total coins distributed, richest account, wealth distribution, etc.",
     "display": "standalone",
     "theme_color": "#DC0D16",
