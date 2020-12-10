@@ -11,6 +11,77 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.css">
     <link rel="stylesheet"
         href="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/default-skin/default-skin.min.css">
+    <meta content="Nikhil Taneja" name="author" />
+    <meta
+        content="thenewboston, blockchain, crypto currency, digital currency, open source, analysis, nodejs, wealth distribution, explorer, insights, tnb, analysis, analytics"
+        name="keywords" />
+    <meta
+        content="Daily dose of insights about thenewboston digital crypto currency network analysis like total coins distributed, richest account, wealth distribution, etc."
+        name="description" />
+    <meta content="link or terms" name="no-email-collection" />
+    <meta content="safe for kids" name="rating" />
+    <link rel="apple-touch-icon" sizes="57x57" href="/web/assets/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/web/assets/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/web/assets/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/web/assets/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/web/assets/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/web/assets/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/web/assets/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/web/assets/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/web/assets/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="/web/assets/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/web/assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="/web/assets/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/web/assets/favicon-16x16.png">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="msapplication-TileImage" content="/web/assets/ms-icon-144x144.png">
+    <meta name="msapplication-TileColor" content="#DC0D16">
+    <meta name="theme-color" content="#DC0D16">
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.1.2/firebase-messaging.js"></script>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyB49k9ZKPAT5cJLxgUgu5MHNi6Inh8gp1g",
+            projectId: "notify-e1c0c",
+            messagingSenderId: "932775037797",
+            appId: "1:932775037797:web:67dff66e9ec3bb55efef8c"
+        };
+        // Initialize Firebase
+        firebase.initializeApp(firebaseConfig);
+        // Retrieve Firebase Messaging object.
+        const messaging = firebase.messaging();
+        // Get registration token. Initially this makes a network call, once retrieved
+        // subsequent calls to getToken will return from cache.
+        messaging.requestPermission().then(function () {
+            console.log('Notification permission granted');
+            return messaging.getToken();
+        }).then(function (token) {
+            // console.log(token);
+        }).catch(function (err) {
+            console.log('Unable to get permission to notify,', err);
+        });
+
+        function getRegisterToken() {
+            messaging.getToken().then((currentToken) => {
+                if (currentToken) {
+                    console.log(currentToken);
+                    sendTokenToServer(currentToken);
+                    // updateUIForPushEnabled(currentToken);
+                } else {
+                    // Show permission request.
+                    console.log('No registration token available. Request permission to generate one.');
+                    // Show permission UI.
+                    // updateUIForPushPermissionRequired();
+                    setTokenSentToServer(false);
+                }
+            }).catch((err) => {
+                console.log('An error occurred while retrieving token. ', err);
+                showToken('Error retrieving registration token. ', err);
+                setTokenSentToServer(false);
+            });
+        }
+    </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-43GVQDX418"></script>
     <script>
@@ -80,19 +151,19 @@
                     <div class="title">
                         <h3>COINS DISTRIBUTED</h3>
                     </div>
-                    <h1 id="total-coins">10,000,000</h1>
+                    <h1 id="total-coins">---,---,---</h1>
                 </div>
                 <div class="card text-center">
                     <div class="title">
                         <h3>TOTAL ACCOUNTS</h3>
                     </div>
-                    <h1 id="total-accounts">10,000,000</h1>
+                    <h1 id="total-accounts">---,---,---</h1>
                 </div>
                 <div class="card text-center">
                     <div class="title">
                         <h3>RICHEST ACCOUNT</h3>
                     </div>
-                    <h1 id="max-balance">10,000,000</h1>
+                    <h1 id="max-balance">---,---,---</h1>
                 </div>
             </div>
         </div>
@@ -299,12 +370,34 @@
 
     <footer>
         <p><b>Project hosted on Github</b></p>
-        <p><em><u>Disclaimer</u>: Although the data found here has been processed from sources believed to be reliable, no warranty expressed or implied is made regarding accuracy, adequacy, completeness, legality,reliability or usefulness of any information.<br>This site uses Google analytics</em></p>
+        <p><em><u>Disclaimer</u>: Although the data found here has been processed from sources believed to be reliable,
+                no warranty expressed or implied is made regarding accuracy, adequacy, completeness,
+                legality,reliability or usefulness of any information.<br>This site uses Google analytics</em></p>
     </footer>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.1/photoswipe-ui-default.min.js"></script>
     <script src="web/js/scripts.js"></script>
+    <script>
+        // This is the service worker with the combined offline experience (Offline page + Offline copy of pages)
+
+        // Check compatibility for the browser we're running this in
+        if ("serviceWorker" in navigator) {
+            if (navigator.serviceWorker.controller) {
+                console.log("[PWA Builder] active service worker found, no need to register");
+            } else {
+                // Register the service worker
+                navigator.serviceWorker
+                    .register("firebase-messaging-sw.js", {
+                        scope: "./"
+                    })
+                    .then(function (reg) {
+                        console.log("[PWA Builder] Service worker has been registered for scope: " + reg.scope);
+                    });
+            }
+        }
+    </script>
+    <!-- <script src="web/js/application.js"></script> -->
 </body>
 
 </html>
