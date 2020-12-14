@@ -3,7 +3,7 @@
 // pwabuilder-sw.js (c) 2020
 // Desc: Service worker
 // Created:  Thu Dec 10 2020 10:57:48 GMT+0530 (India Standard Time)
-// Modified: Thu Dec 10 2020 17:42:46 GMT+0530 (India Standard Time)
+// Modified: Mon Dec 14 2020 19:27:03 GMT+0530 (India Standard Time)
 // 
 
 const CACHE = "pwabuilder-offline";
@@ -34,11 +34,11 @@ firebase.initializeApp(firebaseConfig);
 const messaging=firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function (payload) {
-    // console.log(payload);
+    console.log(payload);
     const notification=JSON.parse(payload);
     const notificationOption={
         body:notification.body,
-        icon:notification.icon
+        icon:'/tnb-analysis/web/assets/maskable_icon.png'
     };
     return self.registration.showNotification(payload.notification.title,notificationOption);
 });

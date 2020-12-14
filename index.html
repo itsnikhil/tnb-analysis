@@ -57,30 +57,10 @@
             console.log('Notification permission granted');
             return messaging.getToken();
         }).then(function (token) {
-            // console.log(token);
+            console.log(token);
         }).catch(function (err) {
             console.log('Unable to get permission to notify,', err);
         });
-
-        function getRegisterToken() {
-            messaging.getToken().then((currentToken) => {
-                if (currentToken) {
-                    console.log(currentToken);
-                    sendTokenToServer(currentToken);
-                    // updateUIForPushEnabled(currentToken);
-                } else {
-                    // Show permission request.
-                    console.log('No registration token available. Request permission to generate one.');
-                    // Show permission UI.
-                    // updateUIForPushPermissionRequired();
-                    setTokenSentToServer(false);
-                }
-            }).catch((err) => {
-                console.log('An error occurred while retrieving token. ', err);
-                showToken('Error retrieving registration token. ', err);
-                setTokenSentToServer(false);
-            });
-        }
     </script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-43GVQDX418"></script>
