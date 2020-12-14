@@ -3,7 +3,7 @@
 // pwabuilder-sw.js (c) 2020
 // Desc: Service worker
 // Created:  Thu Dec 10 2020 10:57:48 GMT+0530 (India Standard Time)
-// Modified: Mon Dec 14 2020 19:34:46 GMT+0530 (India Standard Time)
+// Modified: Mon Dec 14 2020 19:36:50 GMT+0530 (India Standard Time)
 // 
 
 const CACHE = "pwabuilder-offline";
@@ -38,7 +38,9 @@ messaging.setBackgroundMessageHandler(function (payload) {
   const notification = JSON.parse(payload);
   const notificationOption = {
     body: notification.body,
-    icon: '/tnb-analysis/web/assets/maskable_icon.png'
+    icon: '/tnb-analysis/web/assets/maskable_icon.png',
+    data: { url:payload.data.click_action },
+    actions: [{action: "open_url", title: "Read Now"}]
   };
   return self.registration.showNotification(payload.notification.title, notificationOption);
 });
