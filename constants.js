@@ -3,7 +3,7 @@
 // constants.js (c) 2020
 // Desc: Configuration file
 // Created:  Fri Dec 04 2020 00:44:29 GMT+0530 (India Standard Time)
-// Modified: Fri Dec 04 2020 03:30:21 GMT+0530 (India Standard Time)
+// Modified: Wed Dec 16 2020 16:20:56 GMT+0530 (India Standard Time)
 // 
 
 const DIR = 'account_backups/';
@@ -11,6 +11,7 @@ const OUT_FILE_NAME = 'out';
 
 // Outliers
 const ACCOUNTS_TO_SKIP = [
+    "23676c35fce177aef2412e3ab12d22bf521ed423c6f55b8922c336500a1a27c5", //TREASURY (new)
     "6ad6deef2a65642a130fb081dacc2010c7521678986ed44b53a845bc00dd3924", //TREASURY
     "9bfa37627e2dba0ae48165b219e76ceaba036b3db8e84108af73a1cce01fad35", //TREASURY (old)
     "f0fe0fdff41db888a0938882502ee809f6874c015aa09e11e38c8452d4175535", // Payments (Taiwo Odetola)

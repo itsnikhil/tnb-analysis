@@ -3,14 +3,14 @@
 // pwabuilder-sw.js (c) 2020
 // Desc: Service worker
 // Created:  Thu Dec 10 2020 10:57:48 GMT+0530 (India Standard Time)
-// Modified: Mon Dec 14 2020 19:36:50 GMT+0530 (India Standard Time)
+// Modified: Wed Dec 16 2020 17:53:08 GMT+0530 (India Standard Time)
 // 
 
 const CACHE = "pwabuilder-offline";
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.0.0/workbox-sw.js');
-importScripts('https://www.gstatic.com/firebasejs/7.14.6/firebase-app.js');
-importScripts('https://www.gstatic.com/firebasejs/7.14.6/firebase-messaging.js');
+importScripts('https://www.gstatic.com/firebasejs/8.1.2/firebase-app.js');
+importScripts('https://www.gstatic.com/firebasejs/8.1.2/firebase-messaging.js');
 
 workbox.routing.registerRoute(
   new RegExp('/*'),
@@ -33,16 +33,18 @@ var firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 const messaging = firebase.messaging();
 
-messaging.setBackgroundMessageHandler(function (payload) {
-  console.log(payload);
-  const notification = JSON.parse(payload);
-  const notificationOption = {
-    body: notification.body,
+messaging.onBackgroundMessage(function(payload) {
+  console.log('[firebase-messaging-sw.js] Received background message ', payload);
+  // Customize notification here
+  const notificationOptions = {
+    body: payload.notification.body,
     icon: '/tnb-analysis/web/assets/maskable_icon.png',
     data: { url:payload.data.click_action },
-    actions: [{action: "open_url", title: "Read Now"}]
+    actions: [{action: "open_url", title: "View report"}]
   };
-  return self.registration.showNotification(payload.notification.title, notificationOption);
+
+  self.registration.showNotification(payload.notification.title,
+    notificationOptions);
 });
 
 self.addEventListener('notificationclick', function (event) {
