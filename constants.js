@@ -17,6 +17,7 @@ const ACCOUNTS_TO_SKIP = [
     "f0fe0fdff41db888a0938882502ee809f6874c015aa09e11e38c8452d4175535", // Payments (Taiwo Odetola)
     "addf211d203c077bc5c6b78f41ddc68481804539de4bd3fd736fa853514551c0", // Payments (Rajput Usman)
     "c536b7717f4c3e3b864e384c2156a44f952223326bc0eab4f2f8be1a34bc2e6d", // Payments (Nikhil Taneja)
+    "9cb647da9ea1445c361e6d734a6ee0fce4896230392947713686697dd586495b", // Payments (Tawanda Makunike)
     "0d304450eae6b5094240cc58b008066316d9f641878d9af9dd70885f065913a0", // Held lot of value in past, now has 0
     "ca85c141c945866dd32af37ad669855458eb3f9e5d1a4530d852c3c745de11a7", // Held lot of value in past, now has 0
     "a7381dce0249efc26130dd226ecc0df3154009a0210adc4cac869e4a2cb92d65", // Held lot of value in past, now has 0
