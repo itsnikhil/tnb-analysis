@@ -57,6 +57,31 @@ function toggleNav(x) {
         right.style.display = "block"
 }
 
+function notificationBannerJS(element) {
+    let bar = document.querySelector(element);
+
+    setTimeout(function () {
+        bar.style.transform = "translateY(0)";
+        document.body.style.transition = "padding-top 0.5s ease-out";
+        document.body.style.paddingTop = bar.offsetHeight + "px";
+    }, 1000);
+
+    document.body.style.transition = null;
+}
+
+function closeBanner(){
+    let bar = document.querySelector('.trial-bar');
+    document.body.style.transition = "padding-top 0.5s ease-out";
+    bar.style.transform = "translateY(-100px)";
+    document.body.style.paddingTop = "0px";
+}
+
+
+window.addEventListener("load", function () {
+    notificationBannerJS('.trial-bar',);
+});
+
+
 var initPhotoSwipeFromDOM = function(gallerySelector) {
 
     // parse slide data (url, title, size ...) from DOM elements 

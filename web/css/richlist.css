@@ -72,13 +72,14 @@ html {
     width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
+    text-align: center;
   }
   .list__label {
     font-size: 11px;
     opacity: 0.6;
   }
   .list_rank {
-      width: 30px;
+      width: 40px;
   }
   .list_coins {
       width: 30%;
@@ -128,59 +129,6 @@ html {
     text-align: center;
     padding: 1rem 0.2rem;
     background: var(--grey-5);
-  }
-  
-  .overlay {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: var(--trans-black);
-    display: none;
-    cursor: pointer;
-    transition: all 300ms ease;
-  }
-  .overlay.is-open {
-    display: block;
-  }
-  
-  .sidebar {
-    position: fixed;
-    background: white;
-    width: 100%;
-    max-width: 500px;
-    top: 0;
-    bottom: 0;
-    box-shadow: none;
-    right: -500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    /*@media screen and (max-width: 650px) {
-        flex-direction: column-reverse;
-        justify-content: space-between;
-    }*/
-    transition: all 300ms ease;
-  }
-  .sidebar.is-open {
-    right: 0;
-    transition: all 300ms ease;
-    box-shadow: 0px 0px 100px var(--black);
-  }
-  .sidebar__header {
-    display: flex;
-    justify-content: space-between;
-    background: var(--grey-9);
-    align-items: center;
-  }
-  .sidebar__header, .sidebar__body {
-    padding: 2rem;
-  }
-  .sidebar__title {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--grey-4);
   }
   
   .button {

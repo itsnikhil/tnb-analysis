@@ -18,6 +18,7 @@ const { parser } = require('stream-json');
 const { streamObject } = require('stream-json/streamers/StreamObject');
 
 const fs = require('fs');
+const path = require('path');
 
 const SortedSet = require('js-sorted-set');
 
@@ -32,8 +33,9 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
     // Data structure to maintain wealth of top 50%
     let top50 = new SortedSet({
         comparator: function (a, b) {
-            if (a.bal !== b.bal) return (b.bal - a.bal)
-            else return a.cnt - b.cnt
+            return (b.bal - a.bal)
+            // if (a.bal !== b.bal) return (b.bal - a.bal)
+            // else return a.cnt - b.cnt
         }
     })
 
@@ -47,16 +49,16 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
         // Add first 50% accounts to sorted set
         if (top50.length < Math.round(50 / 100 * n_accounts)) {
             try {
-                top50.insert({ bal: data.value.balance, cnt: 1 });
+                top50.insert({ bal: data.value.balance, addr: data.key });
             } catch (error) {
-                // Handle diplicate balance
-                let iterator = top50.findIterator({ bal: data.value.balance, cnt: 1 });
-                let k = 2;
-                while (iterator.next().value() != null && iterator.next().value().bal === data.value.balance) {
-                    k++;
-                    iterator = iterator.next();
-                }
-                top50.insert({ bal: data.value.balance, cnt: k });
+                // // Handle diplicate balance
+                // let iterator = top50.findIterator({ bal: data.value.balance, cnt: 1 });
+                // let k = 2;
+                // while (iterator.next().value() != null && iterator.next().value().bal === data.value.balance) {
+                //     k++;
+                //     iterator = iterator.next();
+                // }
+                // top50.insert({ bal: data.value.balance, cnt: k });
             }
         }
         else {
@@ -65,16 +67,16 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
             if (data.value.balance > end.bal) {
                 try {
                     top50.remove(end);
-                    top50.insert({ bal: data.value.balance, cnt: 1 });
+                    top50.insert({ bal: data.value.balance, addr: data.key });
                 } catch (error) {
-                    // Handle diplicate balance
-                    let iterator = top50.findIterator({ bal: data.value.balance, cnt: 1 });
-                    let k = 2;
-                    while (iterator.next() != null && iterator.next().value() != null && iterator.next().value().bal === data.value.balance) {
-                        k++;
-                        iterator = iterator.next();
-                    }
-                    top50.insert({ bal: data.value.balance, cnt: k });
+                    // // Handle diplicate balance
+                    // let iterator = top50.findIterator({ bal: data.value.balance, cnt: 1 });
+                    // let k = 2;
+                    // while (iterator.next() != null && iterator.next().value() != null && iterator.next().value().bal === data.value.balance) {
+                    //     k++;
+                    //     iterator = iterator.next();
+                    // }
+                    // top50.insert({ bal: data.value.balance, cnt: k });
                 }
             }
         }
@@ -83,7 +85,8 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
     // Calculate and print totals on completion
     pipeline.on('end', () => {
         try {
-            fs.writeFileSync("../web/js/richlist.json", JSON.stringify(top50))
+            // console.log(top50);
+            fs.writeFileSync(path.join(__dirname, "../web/js/richlist.json"), JSON.stringify(top50.map(e => ({bal: e.bal, addr: e.addr}))))
         } catch (err) {
             console.error(err)
         }

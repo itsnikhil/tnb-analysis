@@ -216,6 +216,26 @@ nav .left {
     font-style: italic;
     color: #A1A2A4;
 }
+.banner {
+    text-align: center;
+    font-weight: bolder;
+    background-color: #F66767;
+    color: white;
+    padding: 16px;
+}
+.thin-ui-notification-bar {
+    position: fixed;
+    background-color: white;
+    z-index: 999;
+    font-weight: bold;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+    width: 100%;
+    top: 0;
+    left: 0;
+    text-align: center;
+    transition: all 0.5s ease-out;
+    transform: translateY(-100px);
+}
 
 footer {
     width: 100%;
