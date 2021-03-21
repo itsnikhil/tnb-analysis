@@ -82,6 +82,11 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
 
     // Calculate and print totals on completion
     pipeline.on('end', () => {
+        try {
+            fs.writeFileSync("../web/js/richlist.json", JSON.stringify(top50))
+        } catch (err) {
+            console.error(err)
+        }
         let top5Wealth = 0;
         let top10Wealth = 0;
         let top25Wealth = 0;
