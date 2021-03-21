@@ -28,9 +28,9 @@ fs.readdir(DIR, (err, files) => {
 
     console.log(dateToNum(latest_file).substring(0,8),getUTCNow());
 
-    // if (dateToNum(latest_file).substring(0,8) === getUTCNow()){
+    if (dateToNum(latest_file).substring(0,8) === getUTCNow()){
         start(2);
         aggregate(latest_file);
-    // }
-    // else console.log('Nothing to update!');
+    }
+    else console.log('Nothing to update!');
 });
