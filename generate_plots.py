@@ -8,6 +8,7 @@ import json
 import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
+import post_to_discord
 
 
 # %%
@@ -155,3 +156,8 @@ json_data = data.iloc[-1].to_json()
 with open('./web/js/static.json', 'w') as outfile:
     json.dump(json.loads(json_data[:-1] + ', "Date":"' +
                          datetime.utcnow().strftime('%d %b %Y %H:%M') + ' UTC"}'), outfile)
+
+# %%
+static_data = data.iloc[-1].to_dict()
+static_data["Date"] = datetime.utcnow().strftime('%d %b %Y')
+post_to_discord.send(static_data)
