@@ -13,7 +13,7 @@ const { ACCOUNTS_TO_SKIP, DIR } = require("../constants");
 const { analyse: analyseArray } = require("./processArray");
 
 const { chain } = require('stream-chain');
-const https = require('follow-redirects').https;
+const axios = require('axios');
 
 const { parser } = require('stream-json');
 const { streamObject } = require('stream-json/streamers/StreamObject');
@@ -135,34 +135,6 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
             Math.round(50 / 100 * n_accounts) // Top 50% accounts
         ]);
 
-        
-        var options = {
-        'method': 'POST',
-        'hostname': 'restful-google-form.vercel.app',
-        'path': '/api/forms/1FAIpQLSdr8z8F9lm3BuoNkCLPmD3jq9spDatUX24c5-v4waL0fA0zHg',
-        'headers': {
-            'content-type': 'application/json'
-        },
-        'maxRedirects': 20
-        };
-
-        var req = https.request(options, function (res) {
-        var chunks = [];
-
-        res.on("data", function (chunk) {
-            chunks.push(chunk);
-        });
-
-        res.on("end", function (chunk) {
-            var body = Buffer.concat(chunks);
-            console.log(body.toString());
-        });
-
-        res.on("error", function (error) {
-            console.error(error);
-        });
-        });
-
         let postData = JSON.stringify({
             "entry.909817178": file.substring(0, file.length - 5),
             "entry.1671162158": 0,
@@ -185,9 +157,22 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
             "entry.563350721": CryptoJS.AES.encrypt(file.substring(0, file.length - 5), process.env.ENCRYPTION_KEY).toString()
         });
 
-        req.write(postData);
+        const config = {
+        method: 'post',
+        url: 'https://restful-google-form.vercel.app/api/forms/1FAIpQLSdr8z8F9lm3BuoNkCLPmD3jq9spDatUX24c5-v4waL0fA0zHg',
+        headers: { 
+            'content-type': 'application/json'
+        },
+        data : postData
+        };
 
-        req.end();
+        axios(config)
+        .then(function (response) {
+        console.log(JSON.stringify(response.data));
+        })
+        .catch(function (error) {
+        console.log(error);
+        });
 
         tick();
     });
