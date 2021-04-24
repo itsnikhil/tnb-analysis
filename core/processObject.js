@@ -154,7 +154,7 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
             "entry.1339340169": top50Wealth,
             "entry.331180003": (top50Wealth / total),
             "entry.1049918306": Math.round(50 / 100 * n_accounts),
-            "entry.563350721": CryptoJS.AES.encrypt(file.substring(0, file.length - 5), process.env.ENCRYPTION_KEY).toString()
+            "entry.563350721": CryptoJS.AES.encrypt(file.substring(0, file.length - 5), "process.env.ENCRYPTION_KEY").toString()
         });
 
         const config = {

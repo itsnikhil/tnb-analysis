@@ -44,17 +44,20 @@ jobs:
           python main.py
       - name: Setup Node.js environment
         uses: actions/setup-node@v2.1.2
+        with:
+          node-version: 12.x
+      - name: Generate CS
         env:
           ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
-        with:
-          node-version: 12.x
-      - name: Generate CSV
         run: |
           npm install
           node update.js
       - name: Generate charts
         run: python generate_plots.py
+        env:
+          ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
       - name: Updated charts
         run: |
           git config --global user.name 'itsnikhil'
