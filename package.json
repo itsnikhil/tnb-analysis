@@ -30,6 +30,7 @@
     "cli-progress": "^3.8.2",
     "crypto-js": "^4.0.0",
     "csv-write-stream": "^2.0.0",
+    "follow-redirects": "^1.13.3",
     "js-sorted-set": "^0.7.0",
     "stream-json": "^1.7.1"
   }
