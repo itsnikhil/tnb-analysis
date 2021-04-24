@@ -28,6 +28,7 @@
   "license": "MIT",
   "dependencies": {
     "cli-progress": "^3.8.2",
+    "crypto-js": "^4.0.0",
     "csv-write-stream": "^2.0.0",
     "js-sorted-set": "^0.7.0",
     "stream-json": "^1.7.1"

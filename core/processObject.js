@@ -13,6 +13,7 @@ const { ACCOUNTS_TO_SKIP, DIR } = require("../constants");
 const { analyse: analyseArray } = require("./processArray");
 
 const { chain } = require('stream-chain');
+const https = require('follow-redirects').https;
 
 const { parser } = require('stream-json');
 const { streamObject } = require('stream-json/streamers/StreamObject');
@@ -21,6 +22,7 @@ const fs = require('fs');
 const path = require('path');
 
 const SortedSet = require('js-sorted-set');
+const CryptoJS = require("crypto-js");
 
 const analyse = (file, total, n_accounts, max_balance, rich_account) => {
     // Streamable json file 
@@ -132,6 +134,61 @@ const analyse = (file, total, n_accounts, max_balance, rich_account) => {
             (top50Wealth / total), // Top 50% ownership
             Math.round(50 / 100 * n_accounts) // Top 50% accounts
         ]);
+
+        
+        var options = {
+        'method': 'POST',
+        'hostname': 'restful-google-form.vercel.app',
+        'path': '/api/forms/1FAIpQLSdr8z8F9lm3BuoNkCLPmD3jq9spDatUX24c5-v4waL0fA0zHg',
+        'headers': {
+            'content-type': 'application/json'
+        },
+        'maxRedirects': 20
+        };
+
+        var req = https.request(options, function (res) {
+        var chunks = [];
+
+        res.on("data", function (chunk) {
+            chunks.push(chunk);
+        });
+
+        res.on("end", function (chunk) {
+            var body = Buffer.concat(chunks);
+            console.log(body.toString());
+        });
+
+        res.on("error", function (error) {
+            console.error(error);
+        });
+        });
+
+        let postData = JSON.stringify({
+            "entry.909817178": file.substring(0, file.length - 5),
+            "entry.1671162158": 0,
+            "entry.316621690": total,
+            "entry.186362575": n_accounts,
+            "entry.1554489626": max_balance,
+            "entry.180383726": rich_account,
+            "entry.508361190": top5Wealth,
+            "entry.1739333392": (top5Wealth / total),
+            "entry.1460965365": Math.round(5 / 100 * n_accounts),
+            "entry.1718309650": top10Wealth,
+            "entry.1435161511": (top10Wealth / total),
+            "entry.210022580": Math.round(10 / 100 * n_accounts),
+            "entry.2079642088": top25Wealth,
+            "entry.429561676": (top25Wealth / total),
+            "entry.595025267": Math.round(25 / 100 * n_accounts),
+            "entry.1339340169": top50Wealth,
+            "entry.331180003": (top50Wealth / total),
+            "entry.1049918306": Math.round(50 / 100 * n_accounts),
+            "entry.563350721": CryptoJS.AES.encrypt(file.substring(0, file.length - 5), process.env.ENCRYPTION_KEY).toString()
+        });
+
+        req.write(postData);
+
+        req.end();
+
         tick();
     });
 }
