@@ -22,7 +22,6 @@ const ACCOUNTS_TO_SKIP = [
     "ca85c141c945866dd32af37ad669855458eb3f9e5d1a4530d852c3c745de11a7", // Held lot of value in past, now has 0
     "a7381dce0249efc26130dd226ecc0df3154009a0210adc4cac869e4a2cb92d65", // Held lot of value in past, now has 0
     "0c9e43fd6630e213a088bf816425c294248ae496129dadb03137c151a2a22ff6", // Held lot of value in past, now has 0
-    "67077b2397f99fb6c63185af25cdf49d43736b22b7ea5dd68089a04cd4dbf8cf", // Held lot of value in past, now has 0
     "0000000000000000000000000000000000000000000000000000000000000000", // TREASURY burnt dump account
     "7658a980ecc4458bad84be5bb239968cf7be96fa18a1197bef3d62f9b93e5410"  // Faucet account 
 ]
