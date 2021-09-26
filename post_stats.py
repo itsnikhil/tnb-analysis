@@ -34,5 +34,5 @@ def send(data):
     }
 
     response = requests.request('POST', url, headers=headers, data=payload)
-    if response.status_code != 200:
+    if response.status_code != 201:
         raise Exception(response.text)
