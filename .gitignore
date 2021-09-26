@@ -207,3 +207,4 @@ env/
 venv
 venv.bak/
 venv/
+tags.temp
