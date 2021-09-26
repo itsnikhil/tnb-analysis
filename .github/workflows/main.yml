@@ -50,6 +50,7 @@ jobs:
         env:
           ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          STATS_API_TOKEN: ${{ secrets.STATS_API_TOKEN}}
         run: |
           npm install
           node update.js
@@ -58,6 +59,7 @@ jobs:
         env:
           ENCRYPTION_KEY: ${{ secrets.ENCRYPTION_KEY }}
           DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+          STATS_API_TOKEN: ${{ secrets.STATS_API_TOKEN}}
       - name: Updated charts
         run: |
           git config --global user.name 'itsnikhil'

@@ -9,6 +9,7 @@ import pandas as pd
 import matplotlib
 import matplotlib.pyplot as plt
 import post_to_discord
+import post_stats
 
 
 # %%
@@ -161,3 +162,4 @@ with open('./web/js/static.json', 'w') as outfile:
 static_data = data.iloc[-1].to_dict()
 static_data["Date"] = datetime.utcnow().strftime('%d %b %Y')
 post_to_discord.send(static_data)
+post_stats.send(static_data)
