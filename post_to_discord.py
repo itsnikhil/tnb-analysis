@@ -5,12 +5,12 @@ def send(data):
     url = os.getenv("DISCORD_WEBHOOK_URL")
 
     payload={
-        "username": "TNB Analysis",
+        "username": "TNB Explorer",
         "avatar_url": "https://itsnikhil.github.io/tnb-analysis/web/assets/maskable_icon.png",
         "embeds": [
             {
                 "title": "TNB Analysis summary " + data["Date"],
-                "url": "https://itsnikhil.github.io/tnb-analysis",
+                "url": "https://tnbexplorer.com/tnb/stats",
                 "description": "Daily dose of insights about thenewboston digital crypto currency network analysis like total coins distributed, richest account, wealth distribution, etc.",
                 "fields": [
                     {
