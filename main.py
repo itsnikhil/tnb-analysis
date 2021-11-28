@@ -7,7 +7,7 @@ from thenewboston.utils.network import fetch
 from utils.files import write_json
 from utils.format_results import format_results
 
-PRIMARY_VALIDATOR_IP = '54.219.234.129'
+PRIMARY_VALIDATOR_IP = '52.52.160.149'
 
 
 def fetch_account_data():
